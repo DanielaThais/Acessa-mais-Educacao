@@ -1,0 +1,66 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependency directories
+node_modules/
+
+# Build files
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vite files
+.vite/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+
+# Temporary files
+tmp/
+temp/
+
+# Cache
+.cache/
+
+# Optional npm cache
+.npm/
+
+# ESLint cache
+.eslintcache
+
+# Parcel cache
+.parcel-cache/
+
+# Mac files
+.AppleDouble
+.LSOverride
+
+# Linux trash folder
+.Trash-*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
