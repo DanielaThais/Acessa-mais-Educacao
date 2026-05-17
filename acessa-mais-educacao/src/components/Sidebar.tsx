@@ -69,7 +69,7 @@ export default function Sidebar() {
         `}
       >
         <div className="flex items-center justify-between mb-10">
-          <h1 className="text-2xl font-bold text-purple-600">Acessa+</h1>
+          <h2 className="text-2xl font-bold text-purple-600">Acessa+</h2>
 
           <button onClick={() => setOpen(false)}>
             <X />
@@ -233,9 +233,9 @@ export default function Sidebar() {
 
       {/* SIDEBAR DESKTOP */}
       <aside className="w-64 bg-white shadow-md p-6 hidden md:flex flex-col">
-        <h1 className="text-2xl font-bold text-purple-600 mb-10">
+        <h2 className="text-2xl font-bold text-purple-600 mb-10">
           Acessa+ Educação
-        </h1>
+        </h2>
 
         <nav className="flex flex-col gap-3 text-gray-700">
           <NavLink

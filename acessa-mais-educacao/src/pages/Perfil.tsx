@@ -1,62 +1,233 @@
 import Layout from "../components/Layout";
 import profile from "../assets/profile.png";
 
+import {
+  Trophy,
+  BookOpen,
+  Flame,
+  Star,
+  Medal,
+} from "lucide-react";
+
 export default function Perfil() {
   return (
     <Layout>
-      <div className="bg-white rounded-3xl shadow p-8 max-w-4xl">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8">
-          {/* Perfil */}
-          <div className="flex items-center gap-6">
-            <img
-              src={profile}
-              alt="Foto de perfil"
-              className="w-28 h-28 rounded-full object-cover border-4 border-purple-300 shadow"
-            />
+      <div className="space-y-8">
 
-            <div>
-              <h1 className="text-4xl font-bold">Aluno</h1>
+        {/* CARD PERFIL */}
+        <section className="bg-gradient-to-r from-purple-700 to-indigo-600 text-white rounded-3xl shadow-xl p-8">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 
-              <p className="text-gray-500">Estudante da plataforma</p>
+            {/* USER */}
+            <div className="flex items-center gap-6">
+              <img
+                src={profile}
+                alt="Foto de perfil"
+                className="
+                  w-32 h-32
+                  rounded-full
+                  object-cover
+                  border-4 border-white
+                  shadow-lg
+                "
+              />
+
+              <div>
+                <h2 className="text-4xl font-bold text-white">
+                  Aluno
+                </h2>
+
+                <p className="opacity-90 mt-1">
+                  Estudante da plataforma
+                </p>
+
+                <p className="mt-4 text-sm opacity-80 max-w-md">
+                  Aprendendo habilidades profissionais e
+                  desenvolvendo novas competências para o
+                  mercado de trabalho.
+                </p>
+              </div>
+            </div>
+
+            {/* STATUS */}
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 flex gap-8 flex-wrap">
+              <div>
+                <p className="text-sm opacity-80">
+                  Nível
+                </p>
+
+                <h3 className="font-bold text-3xl">
+                  4
+                </h3>
+              </div>
+
+              <div>
+                <p className="text-sm opacity-80">
+                  XP
+                </p>
+
+                <h3 className="font-bold text-3xl">
+                  250
+                </h3>
+              </div>
+
+              <div>
+                <p className="text-sm opacity-80">
+                  Sequência
+                </p>
+
+                <h3 className="font-bold text-3xl flex items-center gap-2">
+                  7 <Flame />
+                </h3>
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Status */}
-          <div className="bg-gray-100 rounded-2xl p-4 flex flex-wrap items-center gap-5">
+        {/* PROGRESSO */}
+        <section className="bg-white rounded-3xl shadow p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <BookOpen className="text-purple-600" />
+
+            <h2 className="text-2xl font-bold">
+              Progresso nos Cursos
+            </h2>
+          </div>
+
+          <div className="space-y-6">
+
+            {/* CURSO */}
             <div>
-              <p className="text-sm text-gray-500">Nível</p>
+              <div className="flex justify-between mb-2">
+                <p className="font-semibold">
+                  Comunicação
+                </p>
 
-              <h3 className="font-bold text-purple-600">4</h3>
+                <p className="text-purple-600 font-bold">
+                  80%
+                </p>
+              </div>
+
+              <div className="w-full bg-gray-200 rounded-full h-4">
+                <div className="bg-purple-600 h-4 rounded-full w-[80%]" />
+              </div>
             </div>
 
             <div>
-              <p className="text-sm text-gray-500">XP</p>
+              <div className="flex justify-between mb-2">
+                <p className="font-semibold">
+                  Empregabilidade
+                </p>
 
-              <h3 className="font-bold text-orange-500">250 XP</h3>
+                <p className="text-green-600 font-bold">
+                  60%
+                </p>
+              </div>
+
+              <div className="w-full bg-gray-200 rounded-full h-4">
+                <div className="bg-green-500 h-4 rounded-full w-[60%]" />
+              </div>
             </div>
 
             <div>
-              <p className="text-sm text-gray-500">Sequência</p>
+              <div className="flex justify-between mb-2">
+                <p className="font-semibold">
+                  Inteligência Emocional
+                </p>
 
-              <h3 className="font-bold text-pink-500">7 dias 🔥</h3>
+                <p className="text-pink-600 font-bold">
+                  40%
+                </p>
+              </div>
+
+              <div className="w-full bg-gray-200 rounded-full h-4">
+                <div className="bg-pink-500 h-4 rounded-full w-[40%]" />
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+        </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-gray-100 p-6 rounded-2xl">
-          <h2 className="font-bold text-xl mb-3">Cursos em andamento</h2>
+        {/* CONQUISTAS */}
+        <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-          <p>Comunicação</p>
-          <p>Empregabilidade</p>
-        </div>
+          <div className="bg-white rounded-3xl shadow p-6">
+            <div className="bg-yellow-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
+              <Trophy className="text-yellow-600" />
+            </div>
 
-        <div className="bg-gray-100 p-6 rounded-2xl">
-          <h2 className="font-bold text-xl mb-3">Configurações</h2>
+            <h3 className="font-bold text-xl mb-2">
+              Primeira Conquista
+            </h3>
 
-          <p>Modo acessível ativado</p>
-        </div>
+            <p className="text-gray-500">
+              Você completou sua primeira aula.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow p-6">
+            <div className="bg-pink-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
+              <Flame className="text-pink-600" />
+            </div>
+
+            <h3 className="font-bold text-xl mb-2">
+              Sequência Ativa
+            </h3>
+
+            <p className="text-gray-500">
+              7 dias consecutivos estudando.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow p-6">
+            <div className="bg-purple-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
+              <Medal className="text-purple-600" />
+            </div>
+
+            <h3 className="font-bold text-xl mb-2">
+              Perfil Completo
+            </h3>
+
+            <p className="text-gray-500">
+              Seu perfil foi configurado com sucesso.
+            </p>
+          </div>
+        </section>
+
+        {/* CONFIGURAÇÕES */}
+        <section className="bg-white rounded-3xl shadow p-8">
+          <div className="flex items-center gap-3 mb-6">
+            <Star className="text-purple-600" />
+
+            <h2 className="text-2xl font-bold">
+              Preferências
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+            <div className="bg-gray-100 rounded-2xl p-5">
+              <h3 className="font-semibold mb-2">
+                Acessibilidade
+              </h3>
+
+              <p className="text-gray-500">
+                Modo acessível ativado
+              </p>
+            </div>
+
+            <div className="bg-gray-100 rounded-2xl p-5">
+              <h3 className="font-semibold mb-2">
+                Notificações
+              </h3>
+
+              <p className="text-gray-500">
+                Lembretes diários ativos
+              </p>
+            </div>
+
+          </div>
+        </section>
+
       </div>
     </Layout>
   );
