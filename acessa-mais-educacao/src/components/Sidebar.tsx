@@ -13,7 +13,7 @@ import {
   X,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
   const [open, setOpen] = useState(false);
@@ -69,9 +69,7 @@ export default function Sidebar() {
         `}
       >
         <div className="flex items-center justify-between mb-10">
-          <h1 className="text-2xl font-bold text-purple-600">
-            Acessa+
-          </h1>
+          <h1 className="text-2xl font-bold text-purple-600">Acessa+</h1>
 
           <button onClick={() => setOpen(false)}>
             <X />
@@ -79,77 +77,157 @@ export default function Sidebar() {
         </div>
 
         <nav className="flex flex-col gap-3 text-gray-700">
-          <Link
+          <NavLink
             to="/"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Home size={20} />
             Início
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/cursos"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <PlayCircle size={20} />
             Cursos
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/aula"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <BookOpen size={20} />
             Aula
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/perfil"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <User size={20} />
             Perfil
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/metas"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Target size={20} />
             Metas
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/conquistas"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Trophy size={20} />
             Conquistas
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/comunidade"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <MessageCircle size={20} />
             Comunidade
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/acessibilidade"
             onClick={() => setOpen(false)}
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Accessibility size={20} />
             Acessibilidade
-          </Link>
+          </NavLink>
         </nav>
       </aside>
 
@@ -160,69 +238,149 @@ export default function Sidebar() {
         </h1>
 
         <nav className="flex flex-col gap-3 text-gray-700">
-          <Link
+          <NavLink
             to="/"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Home size={20} />
             Início
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/cursos"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <PlayCircle size={20} />
             Cursos
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/aula"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <BookOpen size={20} />
             Aula
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/perfil"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <User size={20} />
             Perfil
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/metas"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Target size={20} />
             Metas
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/conquistas"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Trophy size={20} />
             Conquistas
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/comunidade"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <MessageCircle size={20} />
             Comunidade
-          </Link>
+          </NavLink>
 
-          <Link
+          <NavLink
             to="/acessibilidade"
-            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+            className={({ isActive }) =>
+              `
+    flex items-center gap-3 p-3 rounded-xl transition
+
+    ${
+      isActive
+        ? "bg-purple-100 text-purple-700 font-semibold"
+        : "hover:bg-gray-100 text-gray-700"
+    }
+  `
+            }
           >
             <Accessibility size={20} />
             Acessibilidade
-          </Link>
+          </NavLink>
         </nav>
       </aside>
     </>
