@@ -9,6 +9,8 @@ import {
   PlayCircle,
 } from "lucide-react";
 
+import { Link } from "react-router-dom";
+
 const courses: string[] = [
   "Comunicação",
   "Organização",
@@ -31,10 +33,12 @@ export default function Home() {
             Início
           </button>
 
-          <button className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl">
-            <PlayCircle size={20} />
-            Meus Cursos
-          </button>
+          <Link to="/cursos">
+            <button className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl">
+              <PlayCircle size={20} />
+              Meus Cursos
+            </button>
+          </Link>
 
           <button className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl">
             <Target size={20} />
@@ -91,7 +95,7 @@ export default function Home() {
         </div>
 
         {/* Banner */}
-        <section className="bg-gradient-to-r from-purple-600 to-indigo-500 text-white rounded-3xl p-8 mb-8 shadow-lg">
+        <section className="bg-gradient-to-r from-purple-800 to-indigo-500 text-white rounded-3xl p-8 mb-8 shadow-lg">
           <h2 className="text-3xl font-bold mb-3">
             Aprenda com acessibilidade
           </h2>
