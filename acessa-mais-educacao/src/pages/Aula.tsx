@@ -5,14 +5,12 @@ export default function Aula() {
   return (
     <Layout>
       <h1 className="text-4xl font-bold mb-8">
-        Comunicação Eficaz
+        Empregabilidade e Inclusão Social
       </h1>
 
       <div className="bg-white rounded-3xl shadow p-6">
-        <div className="bg-gray-200 h-96 rounded-2xl flex items-center justify-center">
-          <p className="text-gray-600 text-xl">
-            Player de vídeo da aula
-          </p>
+        <div className="rounded-2xl overflow-hidden shadow">
+          <iframe className="w-full h-96" src="https://www.youtube.com/embed/QIeDnDRoaP8" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
         </div>
 
         <div className="mt-6 flex gap-4 flex-wrap">

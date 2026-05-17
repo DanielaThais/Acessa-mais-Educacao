@@ -2,12 +2,9 @@ import Layout from "../components/Layout";
 import Header from "../components/Header";
 import CourseCard from "../components/CourseCard";
 import ChatAssistant from "../components/ChatAssistant";
+import { Link } from "react-router-dom";
 
-import {
-  Brain,
-  Briefcase,
-  Accessibility,
-} from "lucide-react";
+import { Brain, Briefcase, Accessibility } from "lucide-react";
 
 const courses: string[] = [
   "Comunicação",
@@ -17,6 +14,10 @@ const courses: string[] = [
 ];
 
 export default function Home() {
+  function setOpen(arg0: boolean): void {
+    throw new Error("Function not implemented.");
+  }
+
   return (
     <Layout>
       <Header
@@ -28,43 +29,38 @@ export default function Home() {
       <div className="mb-8 bg-white rounded-2xl shadow p-4 flex flex-wrap items-center gap-6">
         <div>
           <p className="text-sm text-gray-500">Nível</p>
-          <h3 className="font-bold text-purple-600">
-            4
-          </h3>
+          <h3 className="font-bold text-purple-600">4</h3>
         </div>
 
         <div>
           <p className="text-sm text-gray-500">XP</p>
-          <h3 className="font-bold text-orange-500">
-            250 XP
-          </h3>
+          <h3 className="font-bold text-orange-500">250 XP</h3>
         </div>
 
         <div>
-          <p className="text-sm text-gray-500">
-            Sequência
-          </p>
+          <p className="text-sm text-gray-500">Sequência</p>
 
-          <h3 className="font-bold text-pink-500">
-            7 dias 🔥
-          </h3>
+          <h3 className="font-bold text-pink-500">7 dias 🔥</h3>
         </div>
       </div>
 
       {/* Banner */}
       <section className="bg-gradient-to-r from-purple-800 to-indigo-500 text-white rounded-3xl p-8 mb-8 shadow-lg">
-        <h2 className="text-3xl font-bold mb-3">
-          Aprenda com acessibilidade
-        </h2>
+        <h2 className="text-3xl font-bold mb-3">Aprenda com acessibilidade</h2>
 
         <p className="max-w-2xl text-lg opacity-90">
-          Conteúdos rápidos, linguagem simples e recursos
-          inclusivos para ajudar você a crescer
-          profissionalmente.
+          Conteúdos rápidos, linguagem simples e recursos inclusivos para ajudar
+          você a crescer profissionalmente.
         </p>
 
         <button className="mt-6 bg-white text-purple-700 font-semibold px-6 py-3 rounded-xl hover:scale-105 transition">
-          Continuar Aula
+          <Link
+            to="/aula"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
+          >
+            Continuar Aula
+          </Link>
         </button>
       </section>
 
@@ -75,13 +71,10 @@ export default function Home() {
             <Brain className="text-purple-600" />
           </div>
 
-          <h3 className="font-bold text-xl mb-2">
-            Inteligência Emocional
-          </h3>
+          <h3 className="font-bold text-xl mb-2">Inteligência Emocional</h3>
 
           <p className="text-gray-500">
-            Aprenda a lidar com emoções no ambiente
-            profissional.
+            Aprenda a lidar com emoções no ambiente profissional.
           </p>
         </div>
 
@@ -90,9 +83,7 @@ export default function Home() {
             <Briefcase className="text-blue-600" />
           </div>
 
-          <h3 className="font-bold text-xl mb-2">
-            Primeiro Emprego
-          </h3>
+          <h3 className="font-bold text-xl mb-2">Primeiro Emprego</h3>
 
           <p className="text-gray-500">
             Descubra como se preparar para entrevistas.
@@ -104,9 +95,7 @@ export default function Home() {
             <Accessibility className="text-green-600" />
           </div>
 
-          <h3 className="font-bold text-xl mb-2">
-            Recursos Inclusivos
-          </h3>
+          <h3 className="font-bold text-xl mb-2">Recursos Inclusivos</h3>
 
           <p className="text-gray-500">
             Libras, legendas e navegação simplificada.
@@ -121,9 +110,7 @@ export default function Home() {
             Cursos recomendados
           </h2>
 
-          <button className="text-purple-600 font-semibold">
-            Ver todos
-          </button>
+          <button className="text-purple-600 font-semibold">Ver todos</button>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
