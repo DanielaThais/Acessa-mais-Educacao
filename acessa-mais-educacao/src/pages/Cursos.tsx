@@ -51,7 +51,7 @@ export default function Cursos() {
           </p>
 
           {/* BUSCA */}
-          <div className="mt-6 bg-white rounded-2xl px-4 py-3 flex items-center gap-3 max-w-xl">
+          <div className="mt-6 bg-[var(--card)] rounded-2xl px-4 py-3 flex items-center gap-3 max-w-xl">
             <Search className="text-gray-400" />
 
             <input
@@ -68,19 +68,19 @@ export default function Cursos() {
             Todos
           </button>
 
-          <button className="bg-white px-5 py-2 rounded-xl shadow">
+          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Comunicação
           </button>
 
-          <button className="bg-white px-5 py-2 rounded-xl shadow">
+          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Profissional
           </button>
 
-          <button className="bg-white px-5 py-2 rounded-xl shadow">
+          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Financeiro
           </button>
 
-          <button className="bg-white px-5 py-2 rounded-xl shadow">
+          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Desenvolvimento pessoal
           </button>
         </section>
@@ -91,7 +91,7 @@ export default function Cursos() {
             <div
               key={curso.titulo}
               className="
-                bg-white rounded-3xl shadow
+                bg-[var(--card)] rounded-3xl shadow
                 overflow-hidden
                 hover:scale-[1.02]
                 transition

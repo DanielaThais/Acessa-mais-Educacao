@@ -50,7 +50,7 @@ export default function Perfil() {
             </div>
 
             {/* STATUS */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 flex gap-8 flex-wrap">
+            <div className="bg-[var(--card)]/10 backdrop-blur-md rounded-2xl p-6 flex gap-8 flex-wrap">
               <div>
                 <p className="text-sm opacity-80">
                   Nível
@@ -85,7 +85,7 @@ export default function Perfil() {
         </section>
 
         {/* PROGRESSO */}
-        <section className="bg-white rounded-3xl shadow p-8">
+        <section className="bg-[var(--card)] rounded-3xl shadow p-8">
           <div className="flex items-center gap-3 mb-6">
             <BookOpen className="text-purple-600" />
 
@@ -150,7 +150,7 @@ export default function Perfil() {
         {/* CONQUISTAS */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-          <div className="bg-white rounded-3xl shadow p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow p-6">
             <div className="bg-yellow-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
               <Trophy className="text-yellow-600" />
             </div>
@@ -164,7 +164,7 @@ export default function Perfil() {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow p-6">
             <div className="bg-pink-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
               <Flame className="text-pink-600" />
             </div>
@@ -178,7 +178,7 @@ export default function Perfil() {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow p-6">
             <div className="bg-purple-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
               <Medal className="text-purple-600" />
             </div>
@@ -194,7 +194,7 @@ export default function Perfil() {
         </section>
 
         {/* CONFIGURAÇÕES */}
-        <section className="bg-white rounded-3xl shadow p-8">
+        <section className="bg-[var(--card)] rounded-3xl shadow p-8">
           <div className="flex items-center gap-3 mb-6">
             <Star className="text-purple-600" />
 

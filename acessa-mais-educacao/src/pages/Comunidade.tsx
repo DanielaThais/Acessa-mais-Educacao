@@ -23,7 +23,7 @@ export default function Comunidade() {
         {/* FEED */}
         <section className="space-y-4">
           {/* POST 1 */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center font-bold text-purple-600">
                 M
@@ -54,7 +54,7 @@ export default function Comunidade() {
           </div>
 
           {/* POST 2 */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center font-bold text-blue-600">
                 J
@@ -71,7 +71,7 @@ export default function Comunidade() {
               aplicando no meu dia a dia no trabalho.
             </p>
 
-            <div className="flex items-center gap-4 text-gray-500 text-sm">
+            <div className="flex items-center gap-4 text-[var(--text)] text-sm">
               <button className="flex items-center gap-1 hover:text-purple-600">
                 <ThumbsUp size={16} />
                 Curtir

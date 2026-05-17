@@ -1,99 +1,112 @@
 import Layout from "../components/Layout";
+import { useAcessibilidade } from "../contexts/AcessibilidadeContext";
+
 import { Subtitles, Ear, Contrast, Type } from "lucide-react";
 
 export default function Acessibilidade() {
+  const {
+    legendas,
+    setLegendas,
+    libras,
+    setLibras,
+    altoContraste,
+    setAltoContraste,
+    fonteGrande,
+    setFonteGrande,
+  } = useAcessibilidade();
+
   return (
     <Layout>
       <div className="space-y-8">
-
-        {/* HEADER */}
         <section className="bg-gradient-to-r from-purple-700 to-indigo-600 text-white rounded-3xl shadow-xl p-8">
-          <h1 className="text-4xl font-bold">
-            Acessibilidade ♿
-          </h1>
+          <h1 className="text-4xl font-bold">Acessibilidade ♿</h1>
 
           <p className="opacity-90 mt-2 max-w-2xl">
-            Ajuste a plataforma para sua forma de aprender com recursos que tornam a experiência mais inclusiva e confortável.
+            Personalize sua experiência de aprendizado.
           </p>
         </section>
 
-        {/* RECURSOS */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
           {/* LEGENDAS */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-3">
               <Subtitles className="text-purple-600" />
-              <h2 className="font-bold text-xl">
-                Legendas Automáticas
-              </h2>
+              <h2 className="font-bold text-xl">Legendas</h2>
             </div>
 
-            <p className="text-gray-500">
-              Ative legendas em todas as aulas para acompanhar o conteúdo com mais facilidade.
-            </p>
+            <p className="text-[var(--text)] mb-4">Ativar legendas nos vídeos.</p>
 
-            <button className="mt-4 text-purple-600 font-semibold hover:underline">
-              Ativar recurso
+            <button
+              onClick={() => setLegendas(!legendas)}
+              className={`px-4 py-2 rounded-xl font-semibold transition ${
+                legendas ? "bg-purple-600 text-white" : "bg-gray-200"
+              }`}
+            >
+              {legendas ? "Ativado" : "Ativar"}
             </button>
           </div>
 
           {/* LIBRAS */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-3">
               <Ear className="text-blue-600" />
-              <h2 className="font-bold text-xl">
-                Intérprete de Libras
-              </h2>
+              <h2 className="font-bold text-xl">Libras</h2>
             </div>
 
-            <p className="text-gray-500">
-              Tradução simultânea em Libras para melhor compreensão das aulas.
+            <p className="text-[var(--text)] mb-4">
+              Tradutor em Libras (simulação).
             </p>
 
-            <button className="mt-4 text-blue-600 font-semibold hover:underline">
-              Ativar recurso
+            <button
+              onClick={() => setLibras(!libras)}
+              className={`px-4 py-2 rounded-xl font-semibold transition ${
+                libras ? "bg-blue-600 text-white" : "bg-gray-200"
+              }`}
+            >
+              {libras ? "Ativado" : "Ativar"}
             </button>
           </div>
 
           {/* CONTRASTE */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-3">
               <Contrast className="text-green-600" />
-              <h2 className="font-bold text-xl">
-                Contraste Alto
-              </h2>
+              <h2 className="font-bold text-xl">Alto Contraste</h2>
             </div>
 
-            <p className="text-gray-500">
-              Melhora a visibilidade da interface para leitura mais confortável.
+            <p className="text-[var(--text)] mb-4">
+              Melhora a leitura da interface.
             </p>
 
-            <button className="mt-4 text-green-600 font-semibold hover:underline">
-              Ativar recurso
+            <button
+              onClick={() => setAltoContraste(!altoContraste)}
+              className={`px-4 py-2 rounded-xl font-semibold transition ${
+                altoContraste ? "bg-green-600 text-white" : "bg-gray-200"
+              }`}
+            >
+              {altoContraste ? "Ativado" : "Ativar"}
             </button>
           </div>
 
           {/* FONTE */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-3">
               <Type className="text-orange-600" />
-              <h2 className="font-bold text-xl">
-                Fonte Ampliada
-              </h2>
+              <h2 className="font-bold text-xl">Fonte grande</h2>
             </div>
 
-            <p className="text-gray-500">
-              Aumente o tamanho do texto para facilitar a leitura dos conteúdos.
-            </p>
+            <p className="text-[var(--text)] mb-4">Aumenta o tamanho do texto.</p>
 
-            <button className="mt-4 text-orange-600 font-semibold hover:underline">
-              Ajustar fonte
+            <button
+              onClick={() => setFonteGrande(!fonteGrande)}
+              className={`px-4 py-2 rounded-xl font-semibold transition ${
+                fonteGrande ? "bg-orange-600 text-white" : "bg-gray-200"
+              }`}
+            >
+              {fonteGrande ? "Ativado" : "Ativar"}
             </button>
           </div>
-
         </section>
-
       </div>
     </Layout>
   );

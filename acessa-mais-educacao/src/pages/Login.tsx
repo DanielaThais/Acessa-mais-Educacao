@@ -1,7 +1,7 @@
 export default function Login() {
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-10 rounded-3xl shadow w-full max-w-md">
+      <div className="bg-[var(--card)] p-10 rounded-3xl shadow w-full max-w-md">
         <h1 className="text-4xl font-bold mb-8 text-center text-purple-600">
           Acessa+ Educação
         </h1>

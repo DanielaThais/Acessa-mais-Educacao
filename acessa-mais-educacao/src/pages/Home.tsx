@@ -1,5 +1,4 @@
 import Layout from "../components/Layout";
-import Header from "../components/Header";
 import CourseCard from "../components/CourseCard";
 import ChatAssistant from "../components/ChatAssistant";
 import { Link } from "react-router-dom";
@@ -41,7 +40,7 @@ export default function Home() {
         </section>
 
         {/* STATUS */}
-        <section className="bg-white rounded-3xl shadow-xl p-6 flex flex-wrap gap-6 justify-between">
+        <section className="bg-[var(--card)] rounded-3xl shadow-xl p-6 flex flex-wrap gap-6 justify-between">
           <div>
             <p className="text-sm text-gray-500">Nível</p>
             <h3 className="font-bold text-3xl text-purple-600">4</h3>
@@ -59,7 +58,7 @@ export default function Home() {
         </section>
 
         {/* BANNER PRINCIPAL */}
-        <section className="bg-white rounded-3xl shadow-xl p-8 border border-gray-100">
+        <section className="bg-[var(--card)] rounded-3xl shadow-xl p-8 border border-gray-100">
           <h2 className="text-2xl font-bold mb-3 text-gray-800">
             Aprenda com acessibilidade
           </h2>
@@ -80,7 +79,7 @@ export default function Home() {
 
         {/* DESTAQUES */}
         <section className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div className="bg-white p-6 rounded-3xl shadow">
+          <div className="bg-[var(--card)] p-6 rounded-3xl shadow">
             <div className="bg-purple-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
               <Brain className="text-purple-600" />
             </div>
@@ -92,7 +91,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl shadow">
+          <div className="bg-[var(--card)] p-6 rounded-3xl shadow">
             <div className="bg-blue-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
               <Briefcase className="text-blue-600" />
             </div>
@@ -104,7 +103,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="bg-white p-6 rounded-3xl shadow">
+          <div className="bg-[var(--card)] p-6 rounded-3xl shadow">
             <div className="bg-green-100 w-14 h-14 rounded-2xl flex items-center justify-center mb-4">
               <Accessibility className="text-green-600" />
             </div>
@@ -118,7 +117,7 @@ export default function Home() {
         </section>
 
         {/* CURSOS */}
-        <section className="bg-white rounded-3xl shadow-xl p-8">
+        <section className="bg-[var(--card)] rounded-3xl shadow-xl p-8">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold text-gray-800">
               Cursos recomendados

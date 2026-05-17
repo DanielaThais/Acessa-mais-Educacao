@@ -24,7 +24,7 @@ const comments: Comment[] = [
 
 export default function CommentSection() {
   return (
-    <section className="bg-white rounded-3xl shadow p-6 mt-8">
+    <section className="bg-[var(--card)] rounded-3xl shadow p-6 mt-8">
       <h2 className="text-2xl font-bold mb-6">
         Comentários
       </h2>
@@ -33,13 +33,13 @@ export default function CommentSection() {
         {comments.map((item) => (
           <div
             key={item.id}
-            className="bg-gray-100 rounded-2xl p-4"
+            className="bg-[var(--card)] rounded-2xl p-4"
           >
-            <p className="font-semibold text-gray-800">
+            <p className="font-semibold text-[var(--text)]">
               {item.user}
             </p>
 
-            <p className="text-gray-600 mt-1">
+            <p className="text-[var(--text)] mt-1">
               {item.comment}
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function CommentSection() {
           className="w-full border border-gray-300 rounded-2xl p-4 resize-none h-28 focus:outline-none focus:ring-2 focus:ring-purple-400"
         />
 
-        <button className="self-end bg-purple-600 text-white px-6 py-3 rounded-xl hover:bg-purple-700 transition">
+        <button className="self-end bg-[var(--primary)] text-white px-6 py-3 rounded-xl hover:bg-[var(--primary)] transition">
           Enviar Comentário
         </button>
       </div>

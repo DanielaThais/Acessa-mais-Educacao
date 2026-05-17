@@ -34,7 +34,7 @@ export default function Aula() {
         </section>
 
         {/* VÍDEO */}
-        <section className="bg-white rounded-3xl shadow-xl p-6">
+        <section className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
           <div className="flex items-center gap-3 mb-6">
             <PlayCircle className="text-purple-600" />
             <h2 className="text-2xl font-bold">
@@ -57,7 +57,7 @@ export default function Aula() {
         </section>
 
         {/* ACESSIBILIDADE */}
-        <section className="bg-white rounded-3xl shadow-xl p-8">
+        <section className="bg-[var(--card)] rounded-3xl shadow-xl p-8">
           <h2 className="text-2xl font-bold mb-6">
             Recursos de Acessibilidade
           </h2>
@@ -100,7 +100,7 @@ export default function Aula() {
         </section>
 
         {/* COMENTÁRIOS */}
-        <section className="bg-white rounded-3xl shadow-xl p-8">
+        <section className="bg-[var(--card)] rounded-3xl shadow-xl p-8">
           <h2 className="text-2xl font-bold mb-6">
             Discussão da Aula
           </h2>

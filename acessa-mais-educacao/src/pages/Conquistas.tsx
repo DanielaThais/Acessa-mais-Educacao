@@ -17,7 +17,7 @@ export default function Conquistas() {
 
         {/* CONQUISTAS */}
         <section className="grid grid-cols-1 md:grid-cols-4 gap-6">
-          <div className="bg-white rounded-3xl shadow-xl p-6 text-center hover:scale-105 transition">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6 text-center hover:scale-105 transition">
             <div className="bg-pink-100 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <Flame className="text-pink-600" />
             </div>
@@ -29,7 +29,7 @@ export default function Conquistas() {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-xl p-6 text-center hover:scale-105 transition">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6 text-center hover:scale-105 transition">
             <div className="bg-yellow-100 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <Trophy className="text-yellow-600" />
             </div>
@@ -42,7 +42,7 @@ export default function Conquistas() {
           </div>
 
           {/* espaço para futuras conquistas */}
-          <div className="bg-white rounded-3xl shadow border-2 border-dashed border-gray-200 p-6 text-center opacity-70">
+          <div className="bg-[var(--card)] rounded-3xl shadow border-2 border-dashed border-gray-200 p-6 text-center opacity-70">
             <div className="bg-gray-100 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <Star className="text-gray-400" />
             </div>
@@ -54,7 +54,7 @@ export default function Conquistas() {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow border-2 border-dashed border-gray-200 p-6 text-center opacity-70">
+          <div className="bg-[var(--card)] rounded-3xl shadow border-2 border-dashed border-gray-200 p-6 text-center opacity-70">
             <div className="bg-gray-100 w-14 h-14 rounded-2xl flex items-center justify-center mx-auto mb-4">
               <Medal className="text-gray-400" />
             </div>

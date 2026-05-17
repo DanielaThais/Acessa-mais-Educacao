@@ -57,7 +57,7 @@ export default function Sidebar() {
         className={`
           fixed top-0 left-0
           h-full w-72
-          bg-white
+          bg-[var(--card)]
           shadow-xl
           p-6
           z-50
@@ -232,7 +232,7 @@ export default function Sidebar() {
       </aside>
 
       {/* SIDEBAR DESKTOP */}
-      <aside className="w-64 bg-white shadow-md p-6 hidden md:flex flex-col">
+      <aside className="w-64 bg-[var(--card)] shadow-md p-6 hidden md:flex flex-col">
         <h2 className="text-2xl font-bold text-purple-600 mb-10">
           Acessa+ Educação
         </h2>

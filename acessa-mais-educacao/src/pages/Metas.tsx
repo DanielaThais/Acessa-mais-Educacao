@@ -23,7 +23,7 @@ export default function Metas() {
         {/* METAS */}
         <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* META 1 */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-4">
               <Target className="text-purple-600" />
               <h2 className="font-bold text-xl">Assistir 5 aulas</h2>
@@ -39,7 +39,7 @@ export default function Metas() {
           </div>
 
           {/* META 2 */}
-          <div className="bg-white rounded-3xl shadow-xl p-6">
+          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
             <div className="flex items-center gap-3 mb-4">
               <Users className="text-blue-600" />
               <h2 className="font-bold text-xl">Participar da comunidade</h2>
@@ -56,7 +56,7 @@ export default function Metas() {
         </section>
 
         {/* STATUS RESUMO */}
-        <section className="bg-white rounded-3xl shadow-xl p-6 flex flex-wrap gap-6 justify-between">
+        <section className="bg-[var(--card)] rounded-3xl shadow-xl p-6 flex flex-wrap gap-6 justify-between">
           <div>
             <p className="text-sm text-gray-500">Metas concluídas</p>
             <h3 className="font-bold text-3xl text-green-600 flex items-center gap-2">
