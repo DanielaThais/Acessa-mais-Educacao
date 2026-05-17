@@ -5,11 +5,11 @@ export default function Perfil() {
     <Layout>
       <div className="bg-white rounded-3xl shadow p-8 max-w-4xl">
         <div className="flex items-center gap-6 mb-8">
-          <div className="w-28 h-28 rounded-full bg-purple-200" />
+          <div className="w-28 h-28 rounded-full bg-purple-900" />
 
           <div>
             <h1 className="text-4xl font-bold">
-              Daniela
+              Aluno
             </h1>
 
             <p className="text-gray-500">

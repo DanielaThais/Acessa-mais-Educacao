@@ -1,4 +1,5 @@
 import Layout from "../components/Layout";
+import CommentSection from "../components/CommentSection";
 
 export default function Aula() {
   return (
@@ -32,16 +33,7 @@ export default function Aula() {
           </button>
         </div>
 
-        <div className="mt-8">
-          <h2 className="text-2xl font-bold mb-4">
-            Comentários
-          </h2>
-
-          <div className="bg-gray-100 rounded-2xl p-4">
-            <p className="font-semibold">Lucas:</p>
-            <p>Gostei bastante da explicação.</p>
-          </div>
-        </div>
+        <CommentSection />
       </div>
     </Layout>
   );

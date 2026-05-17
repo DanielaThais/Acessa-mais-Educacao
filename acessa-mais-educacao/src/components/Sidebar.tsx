@@ -6,7 +6,7 @@ import {
   Accessibility,
   User,
   PlayCircle,
-  Home,
+  SquareStack,
 } from "lucide-react";
 
 import { Link } from "react-router-dom";
@@ -23,7 +23,7 @@ export default function Sidebar() {
           to="/"
           className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
         >
-          <Home size={20} />
+          <BookOpen size={20} />
           Início
         </Link>
 
@@ -31,7 +31,7 @@ export default function Sidebar() {
           to="/cursos"
           className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
         >
-          <PlayCircle size={20} />
+          <SquareStack size={20} />
           Cursos
         </Link>
 
@@ -39,7 +39,7 @@ export default function Sidebar() {
           to="/aula"
           className="flex items-center gap-3 hover:bg-gray-100 p-3 rounded-xl"
         >
-          <BookOpen size={20} />
+          <PlayCircle size={20} />
           Aula
         </Link>
 
