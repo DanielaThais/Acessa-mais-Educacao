@@ -25,7 +25,7 @@ export default function Home() {
         {/* HERO */}
         <section className="bg-gradient-to-r from-purple-700 to-indigo-600 text-white rounded-3xl shadow-xl p-8">
           <div className="flex flex-col gap-3">
-            <h1 className="text-4xl font-bold">Olá! Seja bem-vindo 👋</h1>
+            <h1 className="text-4xl text-[color:var(--paragraph)] font-bold">Olá! Seja bem-vindo 👋</h1>
 
             <p className="opacity-90 max-w-2xl text-lg">
               Continue aprendendo no seu ritmo com conteúdos acessíveis e
@@ -59,11 +59,11 @@ export default function Home() {
 
         {/* BANNER PRINCIPAL */}
         <section className="bg-[var(--card)] rounded-3xl shadow-xl p-8 border border-gray-100">
-          <h2 className="text-2xl font-bold mb-3 text-gray-800">
+          <h2 className="text-2xl font-bold mb-3 text-[var(--text)]">
             Aprenda com acessibilidade
           </h2>
 
-          <p className="text-gray-500 max-w-2xl">
+          <p className="text-[var(--context)] max-w-2xl">
             Conteúdos rápidos, linguagem simples e recursos inclusivos para
             ajudar você a crescer profissionalmente e se destacar no mercado.
           </p>
@@ -86,7 +86,7 @@ export default function Home() {
 
             <h3 className="font-bold text-xl mb-2">Inteligência Emocional</h3>
 
-            <p className="text-gray-500">
+            <p className="text-[var(--context)]">
               Aprenda a lidar com emoções no ambiente profissional.
             </p>
           </div>
@@ -98,7 +98,7 @@ export default function Home() {
 
             <h3 className="font-bold text-xl mb-2">Primeiro Emprego</h3>
 
-            <p className="text-gray-500">
+            <p className="text-[var(--context)]">
               Descubra como se preparar para entrevistas.
             </p>
           </div>
@@ -110,7 +110,7 @@ export default function Home() {
 
             <h3 className="font-bold text-xl mb-2">Recursos Inclusivos</h3>
 
-            <p className="text-gray-500">
+            <p className="text-[var(--context)]">
               Libras, legendas e navegação simplificada.
             </p>
           </div>
@@ -119,16 +119,16 @@ export default function Home() {
         {/* CURSOS */}
         <section className="bg-[var(--card)] rounded-3xl shadow-xl p-8">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-800">
+            <h2 className="text-2xl font-bold text-[var(--text)]">
               Cursos recomendados
             </h2>
 
-            <button className="text-purple-600 font-semibold hover:underline">
+            <button className="text-[var(--primary)] font-semibold hover:underline">
               Ver todos
             </button>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 ">
             {courses.map((course) => (
               <CourseCard
                 key={course}

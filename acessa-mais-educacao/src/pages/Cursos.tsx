@@ -57,7 +57,7 @@ export default function Cursos() {
             <input
               type="text"
               placeholder="Pesquisar cursos..."
-              className="w-full outline-none text-gray-700"
+              className="w-full outline-none text-[var(--context)]"
             />
           </div>
         </section>
@@ -123,7 +123,7 @@ export default function Cursos() {
                 <h2 className="text-2xl font-bold mb-3">{curso.titulo}</h2>
 
                 {/* TEXTO */}
-                <p className="text-gray-500 mb-6">
+                <p className="text-[var(--context)] mb-6">
                   Curso com linguagem simples, aulas curtas e recursos
                   acessíveis.
                 </p>
@@ -131,9 +131,9 @@ export default function Cursos() {
                 {/* PROGRESSO */}
                 <div className="mb-6">
                   <div className="flex justify-between text-sm mb-2">
-                    <span className="text-gray-500">Progresso</span>
+                    <span className="text-[var(--context)]">Progresso</span>
 
-                    <span className="font-semibold text-purple-600">
+                    <span className="font-semibold text-[var(--primary)]">
                       {curso.progresso}
                     </span>
                   </div>

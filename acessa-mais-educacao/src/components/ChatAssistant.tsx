@@ -13,14 +13,14 @@ export default function ChatAssistant() {
             Assistente Virtual
           </h2>
 
-          <p className="text-[var(--text)]">
+          <p className="text-[var(--context)]">
             Tire dúvidas rapidamente.
           </p>
         </div>
       </div>
 
       <div className="bg-[var(--card)] rounded-2xl p-4">
-        <p className="text-[var(--text)]">
+        <p className="text-[var(--context)]">
           👋 Olá! Como posso ajudar você?
         </p>
       </div>
