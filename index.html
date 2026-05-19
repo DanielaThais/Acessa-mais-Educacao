@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/Acessa-mais-Educacao/icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acessa+ Educação</title>
+    <script>
+      try {
+        const acessibilidade = JSON.parse(
+          localStorage.getItem("acessibilidade") || "{}",
+        );
+
+        document.documentElement.classList.toggle(
+          "alto-contraste",
+          Boolean(acessibilidade.altoContraste),
+        );
+        document.documentElement.classList.toggle(
+          "fonte-grande",
+          Boolean(acessibilidade.fonteGrande),
+        );
+      } catch {
+        localStorage.removeItem("acessibilidade");
+      }
+    </script>
+    <script type="module" crossorigin src="/Acessa-mais-Educacao/assets/index-DMWug973.js"></script>
+    <link rel="stylesheet" crossorigin href="/Acessa-mais-Educacao/assets/index-B5m8BGSc.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <div vw class="enabled">
+      <div vw-access-button class="active"></div>
+      <div vw-plugin-wrapper>
+        <div class="vw-plugin-top-wrapper"></div>
+      </div>
+    </div>
+  </body>
+</html>
