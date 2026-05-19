@@ -22,7 +22,11 @@ export default function Sidebar() {
     <>
       {/* BOTÃO MOBILE */}
       <button
+        type="button"
         onClick={() => setOpen(true)}
+        aria-label="Abrir menu de navegação"
+        aria-expanded={open}
+        aria-controls="menu-mobile"
         className="
           md:hidden
           fixed
@@ -42,6 +46,9 @@ export default function Sidebar() {
       {/* OVERLAY */}
       {open && (
         <div
+          role="button"
+          tabIndex={0}
+          aria-label="Fechar menu de navegação"
           className="
             fixed inset-0
             bg-black/40
@@ -49,11 +56,18 @@ export default function Sidebar() {
             md:hidden
           "
           onClick={() => setOpen(false)}
+          onKeyDown={(event) => {
+            if (event.key === "Enter" || event.key === " ") {
+              setOpen(false);
+            }
+          }}
         />
       )}
 
       {/* SIDEBAR MOBILE */}
       <aside
+        id="menu-mobile"
+        aria-label="Menu principal"
         className={`
           fixed top-0 left-0
           h-full w-72
@@ -71,12 +85,16 @@ export default function Sidebar() {
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-2xl font-bold text-purple-600">Acessa+</h2>
 
-          <button onClick={() => setOpen(false)}>
-            <X />
+          <button
+            type="button"
+            onClick={() => setOpen(false)}
+            aria-label="Fechar menu de navegação"
+          >
+            <X aria-hidden="true" />
           </button>
         </div>
 
-        <nav className="flex flex-col gap-3 text-gray-700">
+        <nav className="flex flex-col gap-3 text-gray-700" aria-label="Navegação principal mobile">
           <NavLink
             to="/"
             onClick={() => setOpen(false)}
@@ -92,7 +110,7 @@ export default function Sidebar() {
   `
             }
           >
-            <Home size={20} />
+            <Home size={20} aria-hidden="true" />
             Início
           </NavLink>
 
@@ -111,7 +129,7 @@ export default function Sidebar() {
   `
             }
           >
-            <PlayCircle size={20} />
+            <PlayCircle size={20} aria-hidden="true" />
             Cursos
           </NavLink>
 
@@ -130,7 +148,7 @@ export default function Sidebar() {
   `
             }
           >
-            <BookOpen size={20} />
+            <BookOpen size={20} aria-hidden="true" />
             Aula
           </NavLink>
 
@@ -149,7 +167,7 @@ export default function Sidebar() {
   `
             }
           >
-            <User size={20} />
+            <User size={20} aria-hidden="true" />
             Perfil
           </NavLink>
 
@@ -168,7 +186,7 @@ export default function Sidebar() {
   `
             }
           >
-            <Target size={20} />
+            <Target size={20} aria-hidden="true" />
             Metas
           </NavLink>
 
@@ -187,7 +205,7 @@ export default function Sidebar() {
   `
             }
           >
-            <Trophy size={20} />
+            <Trophy size={20} aria-hidden="true" />
             Conquistas
           </NavLink>
 
@@ -206,7 +224,7 @@ export default function Sidebar() {
   `
             }
           >
-            <MessageCircle size={20} />
+            <MessageCircle size={20} aria-hidden="true" />
             Comunidade
           </NavLink>
 
@@ -225,19 +243,22 @@ export default function Sidebar() {
   `
             }
           >
-            <Accessibility size={20} />
+            <Accessibility size={20} aria-hidden="true" />
             Acessibilidade
           </NavLink>
         </nav>
       </aside>
 
       {/* SIDEBAR DESKTOP */}
-      <aside className="w-64 bg-[var(--card)] shadow-md p-6 hidden md:flex flex-col">
+      <aside
+        className="w-64 bg-[var(--card)] shadow-md p-6 hidden md:flex flex-col"
+        aria-label="Menu principal"
+      >
         <h2 className="text-2xl font-bold text-purple-600 mb-10">
           Acessa+ Educação
         </h2>
 
-        <nav className="flex flex-col gap-3 text-gray-700">
+        <nav className="flex flex-col gap-3 text-gray-700" aria-label="Navegação principal">
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -252,7 +273,7 @@ export default function Sidebar() {
   `
             }
           >
-            <Home size={20} />
+            <Home size={20} aria-hidden="true" />
             Início
           </NavLink>
 
@@ -270,7 +291,7 @@ export default function Sidebar() {
   `
             }
           >
-            <PlayCircle size={20} />
+            <PlayCircle size={20} aria-hidden="true" />
             Cursos
           </NavLink>
 
@@ -288,7 +309,7 @@ export default function Sidebar() {
   `
             }
           >
-            <BookOpen size={20} />
+            <BookOpen size={20} aria-hidden="true" />
             Aula
           </NavLink>
 
@@ -306,7 +327,7 @@ export default function Sidebar() {
   `
             }
           >
-            <User size={20} />
+            <User size={20} aria-hidden="true" />
             Perfil
           </NavLink>
 
@@ -324,7 +345,7 @@ export default function Sidebar() {
   `
             }
           >
-            <Target size={20} />
+            <Target size={20} aria-hidden="true" />
             Metas
           </NavLink>
 
@@ -342,7 +363,7 @@ export default function Sidebar() {
   `
             }
           >
-            <Trophy size={20} />
+            <Trophy size={20} aria-hidden="true" />
             Conquistas
           </NavLink>
 
@@ -360,7 +381,7 @@ export default function Sidebar() {
   `
             }
           >
-            <MessageCircle size={20} />
+            <MessageCircle size={20} aria-hidden="true" />
             Comunidade
           </NavLink>
 
@@ -378,7 +399,7 @@ export default function Sidebar() {
   `
             }
           >
-            <Accessibility size={20} />
+            <Accessibility size={20} aria-hidden="true" />
             Acessibilidade
           </NavLink>
         </nav>

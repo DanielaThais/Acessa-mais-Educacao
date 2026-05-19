@@ -41,13 +41,13 @@ export default function Comunidade() {
             </p>
 
             <div className="flex items-center gap-4 text-gray-500 text-sm">
-              <button className="flex items-center gap-1 hover:text-purple-600">
-                <ThumbsUp size={16} />
+              <button type="button" className="flex items-center gap-1 hover:text-purple-600">
+                <ThumbsUp size={16} aria-hidden="true" />
                 Curtir
               </button>
 
-              <button className="flex items-center gap-1 hover:text-purple-600">
-                <MessageCircle size={16} />
+              <button type="button" className="flex items-center gap-1 hover:text-purple-600">
+                <MessageCircle size={16} aria-hidden="true" />
                 Responder
               </button>
             </div>
@@ -72,13 +72,13 @@ export default function Comunidade() {
             </p>
 
             <div className="flex items-center gap-4 text-[var(--text)] text-sm">
-              <button className="flex items-center gap-1 hover:text-purple-600">
-                <ThumbsUp size={16} />
+              <button type="button" className="flex items-center gap-1 hover:text-purple-600">
+                <ThumbsUp size={16} aria-hidden="true" />
                 Curtir
               </button>
 
-              <button className="flex items-center gap-1 hover:text-purple-600">
-                <MessageCircle size={16} />
+              <button type="button" className="flex items-center gap-1 hover:text-purple-600">
+                <MessageCircle size={16} aria-hidden="true" />
                 Responder
               </button>
             </div>

@@ -1,48 +1,122 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import type { ReactNode } from "react";
+import { AcessibilidadeContext } from "./acessibilidadeContextValue";
 
-type AcessibilidadeState = {
+const STORAGE_KEY = "acessibilidade";
+const VLIBRAS_SCRIPT_ID = "vlibras-plugin-script";
+const VLIBRAS_PLUGIN_URL = "https://vlibras.gov.br/app";
+const VLIBRAS_SCRIPT_URL = "https://vlibras.gov.br/app/vlibras-plugin.js";
+
+type StoredAcessibilidadeState = {
+  legendas?: boolean;
+  libras?: boolean;
+  altoContraste?: boolean;
+  fonteGrande?: boolean;
+};
+
+type AcessibilidadeValues = {
   legendas: boolean;
   libras: boolean;
   altoContraste: boolean;
   fonteGrande: boolean;
-
-  setLegendas: (value: boolean) => void;
-  setLibras: (value: boolean) => void;
-  setAltoContraste: (value: boolean) => void;
-  setFonteGrande: (value: boolean) => void;
 };
-
-const AcessibilidadeContext = createContext<AcessibilidadeState | undefined>(
-  undefined,
-);
 
 type ProviderProps = {
   children: ReactNode;
 };
 
-export function AcessibilidadeProvider({ children }: ProviderProps) {
-  const [legendas, setLegendas] = useState(false);
-  const [libras, setLibras] = useState(false);
-  const [altoContraste, setAltoContraste] = useState(false);
-  const [fonteGrande, setFonteGrande] = useState(false);
+declare global {
+  interface Window {
+    VLibras?: {
+      Widget: new (pluginUrl: string) => unknown;
+    };
+    vlibrasWidgetInitialized?: boolean;
+  }
+}
 
-  useEffect(() => {
-    const saved = localStorage.getItem("acessibilidade");
+function getInitialAcessibilidadeValues(): AcessibilidadeValues {
+  const fallback = {
+    legendas: false,
+    libras: false,
+    altoContraste: false,
+    fonteGrande: false,
+  };
 
-    if (saved) {
-      const parsed = JSON.parse(saved);
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
 
-      setLegendas(parsed.legendas);
-      setLibras(parsed.libras);
-      setAltoContraste(parsed.altoContraste);
-      setFonteGrande(parsed.fonteGrande);
+    if (!saved) {
+      return fallback;
     }
-  }, []);
+
+    const parsed = JSON.parse(saved) as StoredAcessibilidadeState;
+
+    return {
+      legendas: Boolean(parsed.legendas),
+      libras: Boolean(parsed.libras),
+      altoContraste: Boolean(parsed.altoContraste),
+      fonteGrande: Boolean(parsed.fonteGrande),
+    };
+  } catch {
+    localStorage.removeItem(STORAGE_KEY);
+    return fallback;
+  }
+}
+
+function initializeVLibrasWidget() {
+  if (typeof window === "undefined" || window.vlibrasWidgetInitialized) {
+    return;
+  }
+
+  if (!window.VLibras) {
+    return;
+  }
+
+  new window.VLibras.Widget(VLIBRAS_PLUGIN_URL);
+  window.vlibrasWidgetInitialized = true;
+
+  if (document.readyState === "complete") {
+    window.dispatchEvent(new Event("load"));
+  }
+}
+
+function loadVLibrasScript() {
+  if (typeof window === "undefined") {
+    return;
+  }
+
+  const existingScript = document.getElementById(VLIBRAS_SCRIPT_ID);
+
+  if (existingScript) {
+    existingScript.addEventListener("load", initializeVLibrasWidget, {
+      once: true,
+    });
+    initializeVLibrasWidget();
+    return;
+  }
+
+  const script = document.createElement("script");
+  script.id = VLIBRAS_SCRIPT_ID;
+  script.src = VLIBRAS_SCRIPT_URL;
+  script.async = true;
+  script.onload = initializeVLibrasWidget;
+  document.body.appendChild(script);
+}
+
+export function AcessibilidadeProvider({ children }: ProviderProps) {
+  const initialValues = getInitialAcessibilidadeValues;
+  const [legendas, setLegendas] = useState(() => initialValues().legendas);
+  const [libras, setLibras] = useState(() => initialValues().libras);
+  const [altoContraste, setAltoContraste] = useState(
+    () => initialValues().altoContraste,
+  );
+  const [fonteGrande, setFonteGrande] = useState(
+    () => initialValues().fonteGrande,
+  );
 
   useEffect(() => {
     localStorage.setItem(
-      "acessibilidade",
+      STORAGE_KEY,
       JSON.stringify({
         legendas,
         libras,
@@ -51,9 +125,37 @@ export function AcessibilidadeProvider({ children }: ProviderProps) {
       }),
     );
 
+    document.documentElement.classList.toggle("alto-contraste", altoContraste);
     document.body.classList.toggle("alto-contraste", altoContraste);
+    document.documentElement.classList.toggle("fonte-grande", fonteGrande);
     document.body.classList.toggle("fonte-grande", fonteGrande);
   }, [legendas, libras, altoContraste, fonteGrande]);
+
+  useEffect(() => {
+    loadVLibrasScript();
+  }, []);
+
+  useEffect(() => {
+    if (!libras) {
+      return;
+    }
+
+    const accessButton = document.querySelector<HTMLElement>(
+      "[vw-access-button]",
+    );
+
+    accessButton?.click();
+  }, [libras]);
+
+  useEffect(() => {
+    const videos = Array.from(document.querySelectorAll("video"));
+
+    videos.forEach((video) => {
+      Array.from(video.textTracks).forEach((track) => {
+        track.mode = legendas ? "showing" : "disabled";
+      });
+    });
+  }, [legendas]);
 
   return (
     <AcessibilidadeContext.Provider
@@ -71,16 +173,4 @@ export function AcessibilidadeProvider({ children }: ProviderProps) {
       {children}
     </AcessibilidadeContext.Provider>
   );
-}
-
-export function useAcessibilidade() {
-  const context = useContext(AcessibilidadeContext);
-
-  if (!context) {
-    throw new Error(
-      "useAcessibilidade deve ser usado dentro de AcessibilidadeProvider",
-    );
-  }
-
-  return context;
 }

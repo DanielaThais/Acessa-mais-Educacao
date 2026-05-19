@@ -47,12 +47,19 @@ export default function CommentSection() {
       </div>
 
       <div className="mt-6 flex flex-col gap-4">
+        <label htmlFor="comentario-aula" className="sr-only">
+          Escreva um comentário
+        </label>
         <textarea
+          id="comentario-aula"
           placeholder="Escreva um comentário..."
           className="w-full border border-gray-300 rounded-2xl p-4 resize-none h-28 focus:outline-none focus:ring-2 focus:ring-purple-400"
         />
 
-        <button className="self-end bg-[var(--primary)] text-white px-6 py-3 rounded-xl hover:bg-[var(--primary)] transition">
+        <button
+          type="button"
+          className="self-end bg-[var(--primary)] text-white px-6 py-3 rounded-xl hover:bg-[var(--primary)] transition"
+        >
           Enviar Comentário
         </button>
       </div>

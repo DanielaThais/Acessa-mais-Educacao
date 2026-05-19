@@ -1,7 +1,51 @@
 import Layout from "../components/Layout";
-import { useAcessibilidade } from "../contexts/AcessibilidadeContext";
+import { useAcessibilidade } from "../hooks/useAcessibilidade";
 
 import { Subtitles, Ear, Contrast, Type } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+
+type AccessibilityCardProps = {
+  title: string;
+  description: string;
+  enabled: boolean;
+  onToggle: () => void;
+  icon: LucideIcon;
+  iconClassName: string;
+  activeClassName: string;
+};
+
+function AccessibilityCard({
+  title,
+  description,
+  enabled,
+  onToggle,
+  icon: Icon,
+  iconClassName,
+  activeClassName,
+}: AccessibilityCardProps) {
+  return (
+    <article className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
+      <div className="flex items-center gap-3 mb-3">
+        <Icon className={iconClassName} aria-hidden="true" />
+        <h2 className="font-bold text-xl">{title}</h2>
+      </div>
+
+      <p className="text-[var(--text)] mb-4">{description}</p>
+
+      <button
+        type="button"
+        onClick={onToggle}
+        aria-pressed={enabled}
+        aria-label={`${enabled ? "Desativar" : "Ativar"} ${title}`}
+        className={`px-4 py-2 rounded-xl font-semibold transition ${
+          enabled ? `${activeClassName} text-white` : "bg-gray-200 text-gray-800"
+        }`}
+      >
+        {enabled ? "Ativado" : "Ativar"}
+      </button>
+    </article>
+  );
+}
 
 export default function Acessibilidade() {
   const {
@@ -26,86 +70,49 @@ export default function Acessibilidade() {
           </p>
         </section>
 
-        <section className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* LEGENDAS */}
-          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Subtitles className="text-purple-600" />
-              <h2 className="font-bold text-xl">Legendas</h2>
-            </div>
+        <section
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          aria-label="Controles globais de acessibilidade"
+        >
+          <AccessibilityCard
+            title="Legendas"
+            description="Ativar legendas nos vídeos compatíveis."
+            enabled={legendas}
+            onToggle={() => setLegendas(!legendas)}
+            icon={Subtitles}
+            iconClassName="text-purple-600"
+            activeClassName="bg-purple-600"
+          />
 
-            <p className="text-[var(--text)] mb-4">Ativar legendas nos vídeos.</p>
+          <AccessibilityCard
+            title="Libras"
+            description="Ativar o tradutor VLibras em toda a aplicação."
+            enabled={libras}
+            onToggle={() => setLibras(!libras)}
+            icon={Ear}
+            iconClassName="text-blue-600"
+            activeClassName="bg-blue-600"
+          />
 
-            <button
-              onClick={() => setLegendas(!legendas)}
-              className={`px-4 py-2 rounded-xl font-semibold transition ${
-                legendas ? "bg-purple-600 text-white" : "bg-gray-200"
-              }`}
-            >
-              {legendas ? "Ativado" : "Ativar"}
-            </button>
-          </div>
+          <AccessibilityCard
+            title="Alto Contraste"
+            description="Melhora a leitura da interface com cores de maior contraste."
+            enabled={altoContraste}
+            onToggle={() => setAltoContraste(!altoContraste)}
+            icon={Contrast}
+            iconClassName="text-green-600"
+            activeClassName="bg-green-600"
+          />
 
-          {/* LIBRAS */}
-          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Ear className="text-blue-600" />
-              <h2 className="font-bold text-xl">Libras</h2>
-            </div>
-
-            <p className="text-[var(--text)] mb-4">
-              Tradutor em Libras (simulação).
-            </p>
-
-            <button
-              onClick={() => setLibras(!libras)}
-              className={`px-4 py-2 rounded-xl font-semibold transition ${
-                libras ? "bg-blue-600 text-white" : "bg-gray-200"
-              }`}
-            >
-              {libras ? "Ativado" : "Ativar"}
-            </button>
-          </div>
-
-          {/* CONTRASTE */}
-          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Contrast className="text-green-600" />
-              <h2 className="font-bold text-xl">Alto Contraste</h2>
-            </div>
-
-            <p className="text-[var(--text)] mb-4">
-              Melhora a leitura da interface.
-            </p>
-
-            <button
-              onClick={() => setAltoContraste(!altoContraste)}
-              className={`px-4 py-2 rounded-xl font-semibold transition ${
-                altoContraste ? "bg-green-600 text-white" : "bg-gray-200"
-              }`}
-            >
-              {altoContraste ? "Ativado" : "Ativar"}
-            </button>
-          </div>
-
-          {/* FONTE */}
-          <div className="bg-[var(--card)] rounded-3xl shadow-xl p-6">
-            <div className="flex items-center gap-3 mb-3">
-              <Type className="text-orange-600" />
-              <h2 className="font-bold text-xl">Fonte grande</h2>
-            </div>
-
-            <p className="text-[var(--text)] mb-4">Aumenta o tamanho do texto.</p>
-
-            <button
-              onClick={() => setFonteGrande(!fonteGrande)}
-              className={`px-4 py-2 rounded-xl font-semibold transition ${
-                fonteGrande ? "bg-orange-600 text-white" : "bg-gray-200"
-              }`}
-            >
-              {fonteGrande ? "Ativado" : "Ativar"}
-            </button>
-          </div>
+          <AccessibilityCard
+            title="Fonte grande"
+            description="Aumenta o tamanho do texto em toda a aplicação."
+            enabled={fonteGrande}
+            onToggle={() => setFonteGrande(!fonteGrande)}
+            icon={Type}
+            iconClassName="text-orange-600"
+            activeClassName="bg-orange-600"
+          />
         </section>
       </div>
     </Layout>

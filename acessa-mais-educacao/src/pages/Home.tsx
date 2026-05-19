@@ -70,7 +70,7 @@ export default function Home() {
 
           <Link
             to="/aula"
-            className="inline-flex items-center gap-3 mt-6 bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition"
+            className="inline-flex items-center gap-3 mt-6 bg-purple-600 text-[var(--text)] px-6 py-3 rounded-xl font-semibold hover:bg-purple-700 transition"
           >
             Continuar aula
             <ArrowRight size={18} />
@@ -123,7 +123,10 @@ export default function Home() {
               Cursos recomendados
             </h2>
 
-            <button className="text-[var(--primary)] font-semibold hover:underline">
+            <button
+              type="button"
+              className="text-[var(--primary)] font-semibold hover:underline"
+            >
               Ver todos
             </button>
           </div>

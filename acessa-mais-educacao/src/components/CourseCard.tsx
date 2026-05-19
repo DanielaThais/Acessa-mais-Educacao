@@ -17,7 +17,10 @@ export default function CourseCard({
         {description}
       </p>
 
-      <button className="bg-[var(--primary)] text-white px-4 py-2 rounded-xl">
+      <button
+        type="button"
+        className="bg-[var(--primary)] text-white px-4 py-2 rounded-xl"
+      >
         Acessar Curso
       </button>
     </div>

@@ -1,5 +1,6 @@
 import Layout from "../components/Layout";
 import CommentSection from "../components/CommentSection";
+import { useAcessibilidade } from "../hooks/useAcessibilidade";
 
 import {
   Subtitles,
@@ -10,6 +11,21 @@ import {
 } from "lucide-react";
 
 export default function Aula() {
+  const {
+    legendas,
+    setLegendas,
+    libras,
+    setLibras,
+    fonteGrande,
+    setFonteGrande,
+  } = useAcessibilidade();
+
+  const youtubeParams = new URLSearchParams({
+    cc_lang_pref: "pt",
+    cc_load_policy: legendas ? "1" : "0",
+    rel: "0",
+  });
+
   return (
     <Layout>
       <div className="space-y-8">
@@ -46,8 +62,8 @@ export default function Aula() {
             <div className="w-full max-w-5xl rounded-2xl overflow-hidden shadow-lg">
               <iframe
                 className="w-full aspect-video"
-                src="https://www.youtube.com/embed/QIeDnDRoaP8"
-                title="YouTube video player"
+                src={`https://www.youtube.com/embed/QIeDnDRoaP8?${youtubeParams.toString()}`}
+                title="Aula em vídeo: Empregabilidade e Inclusão Social"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -64,35 +80,57 @@ export default function Aula() {
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 
-            <button className="bg-purple-50 hover:bg-purple-100 transition rounded-2xl p-5 text-left">
-              <Subtitles className="text-purple-600 mb-3" />
+            <button
+              type="button"
+              onClick={() => setLegendas(!legendas)}
+              aria-pressed={legendas}
+              aria-label={`${legendas ? "Desativar" : "Ativar"} legendas da aula`}
+              className="bg-purple-50 hover:bg-purple-100 transition rounded-2xl p-5 text-left"
+            >
+              <Subtitles className="text-purple-600 mb-3" aria-hidden="true" />
               <p className="font-semibold">Legendas</p>
               <p className="text-sm text-gray-500">
-                Ativar legendas automáticas
+                {legendas ? "Legendas ativadas" : "Ativar legendas automáticas"}
               </p>
             </button>
 
-            <button className="bg-blue-50 hover:bg-blue-100 transition rounded-2xl p-5 text-left">
-              <Ear className="text-blue-600 mb-3" />
+            <button
+              type="button"
+              onClick={() => setLibras(!libras)}
+              aria-pressed={libras}
+              aria-label={`${libras ? "Desativar" : "Ativar"} VLibras`}
+              className="bg-blue-50 hover:bg-blue-100 transition rounded-2xl p-5 text-left"
+            >
+              <Ear className="text-blue-600 mb-3" aria-hidden="true" />
               <p className="font-semibold">Libras</p>
               <p className="text-sm text-gray-500">
-                Interpretação em Libras
+                {libras ? "VLibras ativado" : "Interpretação em Libras"}
               </p>
             </button>
 
-            <button className="bg-green-50 hover:bg-green-100 transition rounded-2xl p-5 text-left">
-              <Mic className="text-green-600 mb-3" />
+            <button
+              type="button"
+              aria-label="Recurso de áudio descritivo em preparação"
+              className="bg-green-50 hover:bg-green-100 transition rounded-2xl p-5 text-left"
+            >
+              <Mic className="text-green-600 mb-3" aria-hidden="true" />
               <p className="font-semibold">Áudio</p>
               <p className="text-sm text-gray-500">
                 Explicação em áudio
               </p>
             </button>
 
-            <button className="bg-orange-50 hover:bg-orange-100 transition rounded-2xl p-5 text-left">
-              <Type className="text-orange-600 mb-3" />
+            <button
+              type="button"
+              onClick={() => setFonteGrande(!fonteGrande)}
+              aria-pressed={fonteGrande}
+              aria-label={`${fonteGrande ? "Desativar" : "Ativar"} fonte grande`}
+              className="bg-orange-50 hover:bg-orange-100 transition rounded-2xl p-5 text-left"
+            >
+              <Type className="text-orange-600 mb-3" aria-hidden="true" />
               <p className="font-semibold">Fonte</p>
               <p className="text-sm text-gray-500">
-                Modo leitura ampliada
+                {fonteGrande ? "Fonte ampliada" : "Modo leitura ampliada"}
               </p>
             </button>
 

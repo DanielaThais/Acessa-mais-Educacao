@@ -7,19 +7,32 @@ export default function Login() {
         </h1>
 
         <div className="flex flex-col gap-4">
+          <label htmlFor="email-login" className="sr-only">
+            E-mail
+          </label>
           <input
+            id="email-login"
             type="email"
+            autoComplete="email"
             placeholder="E-mail"
             className="border border-gray-300 rounded-xl p-4"
           />
 
+          <label htmlFor="senha-login" className="sr-only">
+            Senha
+          </label>
           <input
+            id="senha-login"
             type="password"
+            autoComplete="current-password"
             placeholder="Senha"
             className="border border-gray-300 rounded-xl p-4"
           />
 
-          <button className="bg-purple-600 text-white py-4 rounded-xl font-semibold">
+          <button
+            type="button"
+            className="bg-purple-600 text-white py-4 rounded-xl font-semibold"
+          >
             Entrar
           </button>
         </div>

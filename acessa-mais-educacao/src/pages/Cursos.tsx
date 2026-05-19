@@ -55,7 +55,9 @@ export default function Cursos() {
             <Search className="text-gray-400" />
 
             <input
+              id="busca-cursos"
               type="text"
+              aria-label="Pesquisar cursos"
               placeholder="Pesquisar cursos..."
               className="w-full outline-none text-[var(--context)]"
             />
@@ -64,23 +66,23 @@ export default function Cursos() {
 
         {/* CATEGORIAS */}
         <section className="flex flex-wrap gap-3">
-          <button className="bg-purple-100 text-purple-700 px-5 py-2 rounded-xl font-medium">
+          <button type="button" className="bg-purple-100 text-purple-700 px-5 py-2 rounded-xl font-medium">
             Todos
           </button>
 
-          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
+          <button type="button" className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Comunicação
           </button>
 
-          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
+          <button type="button" className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Profissional
           </button>
 
-          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
+          <button type="button" className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Financeiro
           </button>
 
-          <button className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
+          <button type="button" className="bg-[var(--card)] px-5 py-2 rounded-xl shadow">
             Desenvolvimento pessoal
           </button>
         </section>
@@ -150,6 +152,7 @@ export default function Cursos() {
 
                 {/* BOTÃO */}
                 <button
+                  type="button"
                   className="
                     w-full
                     bg-purple-600
